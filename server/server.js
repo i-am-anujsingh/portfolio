@@ -1,18 +1,17 @@
-require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import dotenv from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Replace this with your MongoDB Atlas URI
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('Connected to MongoDB'))
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB!!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 const messageSchema = new mongoose.Schema({
@@ -24,8 +23,7 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
-// Route to handle form submissions
-app.post('/', async (req, res) => {
+app.post('/contactForm', async (req, res) => {
   const { name, email, message } = req.body;
   try {
     const newMessage = new Message({ name, email, message });
@@ -36,5 +34,5 @@ app.post('/', async (req, res) => {
   }
 });
 
-const PORT = (process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

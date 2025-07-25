@@ -1,8 +1,12 @@
 # Node modules
 node_modules/
 
+#images
+image/
+
 # Environment files
 .env
+MYPORTFOLIO/.env
 
 # Logs
 logs/

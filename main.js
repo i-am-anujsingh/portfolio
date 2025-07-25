@@ -16,7 +16,7 @@ const message = contactForm.querySelector('#message').value.trim();
       alert("Please enter a valid email address.");
     } else {
       try {
-        const response = await fetch('https://portfolio-1j5x.onrender.com', {  // <-- UPDATE THIS LINE
+        const response = await fetch('https://portfolio-1j5x.onrender.com/contactForm', {  // <-- UPDATE THIS LINE
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
