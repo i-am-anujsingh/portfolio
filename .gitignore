@@ -6,7 +6,9 @@ image/
 
 # Environment files
 .env
-MYPORTFOLIO/.env
+myPortfolio/.env
+myPortfolio/server/.env
+
 
 # Logs
 logs/
