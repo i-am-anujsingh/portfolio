@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch(err => console.error('MongoDB connection error:', err));
 
 
-app.use('/sendmessage/send',messageRoute);
+app.use('/sendmessage',messageRoute);
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
