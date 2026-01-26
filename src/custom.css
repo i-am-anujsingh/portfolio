@@ -1,0 +1,265 @@
+*{
+  scroll-behavior: smooth;
+  font-family: serif;
+  padding: 0;
+  margin: 0;
+}
+
+.text-grad{
+  background: linear-gradient(50deg, #00f5a0, #00d9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-transparent-blur{
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  background: rgba(100, 100, 100, 0.2);
+  backdrop-filter: blur(4.9px);
+}
+
+.bg-transparent-blur-xl{
+
+  box-shadow: inset 0 10px 30px 2px #00000055;
+  text-align: center;
+  backdrop-filter: blur(9rem);
+}
+
+
+body{
+  background: #000011;
+}
+
+#hero{
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('./assets/background/bg.jpg') center/cover no-repeat;
+}
+
+#hero a, .project-card a {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4.9px);
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+#hero img{
+  box-shadow: 0 0 25px 20px rgba(0, 0, 0 , 1);
+}
+
+nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav div {
+  position: fixed;
+  top: 1rem;
+  z-index: 200;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  object-fit: contain;
+}
+
+nav a, nav button{
+  font-size: 10px;
+  padding: 5px;
+  margin: 0 10px 0 5px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4.9px);
+  border: 1px solid #ccc;
+  color: white;
+  width: 12rem;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  object-fit: contain;
+}
+
+.navigation-bar a:hover, #hero a:hover {
+  border: 2px solid #fff;
+  background: linear-gradient(50deg, #00f5a0, #00d9f5);
+  color: #000011;
+  box-shadow:  0px 0px 10px rgba(0, 245, 160 , 1);
+  transform: scale(1.09) translateY(7px);
+}
+
+#about, #skills,#projects, #achievements, #addskill, #addachievement, #addproject{
+  text-align: justify;
+  padding: 2rem 1rem 2rem 1rem;
+  background: #000011;
+  color: #888;
+  border-top: 1px solid gray;
+}
+
+#about h2, #skills h2,#projects h2, #achievements h2, #addskill h2, #addachievement h2, #addproject h2{
+  font-size: 2rem;
+  margin: 0rem 0 0rem 0;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.skill {
+  margin: 1.5rem;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  height: auto;
+  overflow: auto;
+}
+
+.skill:hover , .achievement-card:hover, 
+.project-card:hover {
+  border: 1.5px solid white;
+  transform:scale(1.02) translateY(-10px);
+  box-shadow: 0px 0px 5px rgba(0, 245, 160 , 1);
+  
+}
+
+#new-skill-form input,#new-skill-form textarea{
+  border-radius: 4px;
+  color: #000011;
+  padding: 4px;
+  width: 80%;
+  margin: 1rem 0 1rem 0;
+  background-color: white;
+}
+
+/* ========== Achievements ========== */
+@media (min-width: 786px) {
+  .achievement-container {
+    display: flex;
+    gap: 4rem;
+    height: auto;
+    padding: 2rem;
+  }
+  
+  .achievement-card{
+    width: 30rem;
+    height: 30rem;
+    overflow-y: auto;
+    object-fit: contain;
+  }
+  
+}
+
+.achievement-card, .project-card {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+  margin-top: 3rem;
+}
+
+.achievement-card img, .project-card img {
+  height: auto;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid black;
+  object-fit: fill;
+}
+
+.achievement-card p, .project-card p{
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
+/* ========== Contact Us ========== */
+
+.message-box{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000011;
+  width: 90%;
+  margin: auto;
+  height: auto;
+  padding: 1rem;
+}
+
+.message-form input, .message-form textarea{
+  margin: 0.5rem 0 0.5rem 0;
+  border-radius: 10px;
+  padding: 5px;
+  height: auto;
+  color: #000011;
+  border: none;
+}
+
+.message-btn-box{
+  text-align: center;
+}
+
+.btn{
+  font-size: 16px;
+  padding: 4px;
+  margin: 12px;
+  background: linear-gradient(50deg, #00f5a0, #00d9f5);
+  box-shadow:  0px 0px 10px rgba(0, 245, 160 , 1);
+  border: 2px solid #fff;
+  border-radius: 18px;
+  color: #000011;
+  width: 80%;
+}
+
+
+/* ========== CUSTOM ANIMATIONS ========== */
+
+.vanishin {
+  animation: vanishIn 0.8s linear;
+}
+
+@keyframes vanishIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* slight shrink while fading */
+    visibility: hidden;
+  }
+}
+
+.login-container{
+  padding: 2rem;
+}
+
+.login-container .input-field{
+  margin: 8px;
+  margin-left: 0;
+  width: 100%;
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-container .input-field input{
+  border-radius: 10px;
+}
+
