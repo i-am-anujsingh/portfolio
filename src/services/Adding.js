@@ -1,5 +1,5 @@
 const API_BASE = 
-import.meta.env.VITE_BACKEND_API;
+import.meta.env.BACKEND_API;
 export const AddingSkills= async (data)=>{
   try {
     const res=await fetch(`${API_BASE}/api/add/skills`,{

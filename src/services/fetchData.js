@@ -1,5 +1,5 @@
 const API_BASE = 
-import.meta.env.VITE_BACKEND_API;
+import.meta.env.BACKEND_API;
 
 export const fetchProjects = async () => {
   try {

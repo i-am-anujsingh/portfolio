@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_BACKEND_API;
+const API_BASE = import.meta.env.BACKEND_API;
 
 export const login = async (userData) => {
   try {
