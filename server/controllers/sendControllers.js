@@ -1,8 +1,12 @@
-const Achievements = require('../models/achievementModel.js');
-const Projects = require('../models/projectModel.js');
-const Skills = require('../models/skillModel.js');
+import connectDB from '../database/ConnectDatabes.js';
+const mydb = connectDB();
+
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const sendProjects = async (req,res)=>{
+  const Projects = mydb.collection("projects");
   try {
     const projects = await Projects.find();
     res.status(200).json({
@@ -20,6 +24,7 @@ const sendProjects = async (req,res)=>{
 }
 
 const sendAchievements = async (req,res)=>{
+  const Achievements = mydb.collection("achievements");
   try {
     const achievements = await Achievements.find();
     res.status(200).json({
@@ -36,21 +41,32 @@ const sendAchievements = async (req,res)=>{
   }
 }
 
-const sendSkills = async (req,res)=>{
+const sendSkills = async (req, res) => {
+  const client = new MongoClient(process.env.MONGODB_URI);
+
   try {
-    const skills = await Skills.find();
+    await client.connect();
+
+    console.log("fails from here");
+    const DB = client.db(process.env.DATABASE);
+    const Skills = DB.collection("skills");
+    const skills = await Skills.find().toArray();
+
     res.status(200).json({
-      message:'File send successfully!',
-      success:true,
+      message: "File sent successfully!",
+      success: true,
       skills,
-    })
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      message:'Some Error Occured While Extracting Skills',
-      success:false,
-    })
+      message: error.message,
+      success: false,
+    });
+  } finally {
+    await client.close();
   }
-}
+};
 
-module.exports = {sendProjects,sendAchievements,sendSkills};
+
+export {sendProjects,sendAchievements,sendSkills};

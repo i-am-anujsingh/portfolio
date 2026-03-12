@@ -33,21 +33,40 @@ body{
 
 #hero{
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('./assets/background/bg.jpg') center/cover no-repeat;
+  padding: 1rem;
+}
+
+#hero div{
+  margin: 4rem 0;
+  height: auto;
+  width: 100%;
+}
+
+.intro{
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+  height: auto;
 }
 
 #hero a, .project-card a {
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4.9px);
+  backdrop-filter: blur(5px);
   border: 1px solid #ccc;
   padding: 10px;
+  margin: 2rem 0 0 0;
   border-radius: 18px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
 }
 
+#hero a{
+  display: inline-block;
+}
+
 #hero img{
   box-shadow: 0 0 25px 20px rgba(0, 0, 0 , 1);
+  margin-top: 3rem;
 }
 
 nav {
@@ -196,6 +215,8 @@ nav a, nav button{
   background-color: #000011;
   width: 90%;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   height: auto;
   padding: 1rem;
 }
@@ -207,6 +228,7 @@ nav a, nav button{
   height: auto;
   color: #000011;
   border: none;
+  background-color: #fff;
 }
 
 .message-btn-box{
@@ -223,6 +245,10 @@ nav a, nav button{
   border-radius: 18px;
   color: #000011;
   width: 80%;
+}
+
+#social-media-links{
+  margin: 2rem 0;
 }
 
 
@@ -248,18 +274,23 @@ nav a, nav button{
   padding: 2rem;
 }
 
+#login-btn{
+  padding: 4px 16px;
+  margin-top: 8px;
+}
+
 .login-container .input-field{
   margin: 8px;
   margin-left: 0;
   width: 100%;
   background-color: white;
   border: 2px solid gray;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 .login-container .input-field input{
-  border-radius: 10px;
+  border-radius: 20px;
 }
 

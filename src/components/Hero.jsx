@@ -21,21 +21,21 @@ const Hero = () => {
         <img
         id='dp'
         src={img}
-        className="h-[14rem] w-[14rem] md:h-[20rem] md:w-[20rem] border-2 border-gray-300 rounded-full transition-all my-20">
+        className="h-[14rem] w-[14rem] md:h-[20rem] md:w-[20rem] border-2 border-gray-300 rounded-full transition-all">
         </img>
       </div>
       
        {/*Intro Div*/}
       <div className="w-auto text-center h-full mt-1 md:mt-2 ">
-        <div className='py-5 w-auto h-auto'>
+        <div className='py-8 w-auto h-auto intro'>
           <h1
           className='my-4 font-extrabold text-2xl md:text-4xl '
           >Welcome to My Portfolio</h1>
           <pre
-          className='mb-6 text-sm md:text-2xl font-mono'
+          className='mb-12 text-sm md:text-2xl font-mono font-red-200'
           >Developer || Designer || Innovator</pre>
           <a
-            className='md:text-2xl'
+            className='md:text-2xl intro-a'
             href="#about">About Me</a>
         </div>
       </div>
@@ -48,7 +48,7 @@ const Hero = () => {
       </p>
     </section>
   </>
-  );
+  )
 };
 
 export default Hero;

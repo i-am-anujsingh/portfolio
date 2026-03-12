@@ -1,10 +1,14 @@
-const Users = require('../models/userModel.js');
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
+import connectDB from '../database/ConnectDatabes.js';
+const mydb = connectDB();
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 dotenv.config();
 
 const login = async (req, res) => {
+  const Users = mydb.collection("users");
+
   const { username, password } = req.body;
+  
   try {
     // Find user by username
     const user = await Users.findOne({ username });
@@ -42,4 +46,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = login;
+export {login};

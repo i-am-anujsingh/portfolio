@@ -81,7 +81,8 @@ export default function Login() {
             {/* Submit */}
             <div className="w-full text-center">
               <button 
-              className='mt-4 py-2 px-4 text-grad border-2 border-gray-100 rounded-full'
+              id="login-btn"
+              className='mt-4 text-grad border-2 border-gray-100 rounded-full'
               type="submit">
                 Login
               </button>

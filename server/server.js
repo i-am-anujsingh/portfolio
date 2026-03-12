@@ -1,28 +1,25 @@
-const express =  require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const connectDB = require('./database/ConnectDatabes');
-
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 dotenv.config();
+
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT =  process.env.PORT ||  3000;
 
 // Middleware
-app.use(cors({
-  origin: ["http://localhost:5173", "https://npgctechfest.vercel.app"],
-  credentials: true
-}));
-
+app.use(cors());
 app.use(express.json({ limits: { fileSize: 15 * 1024 * 1024 } }));
 
-connectDB(); //CONNECTING TO DATABASE
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 //IMPORTING API ROUTES 
-const messageRoutes = require('./routes/messageRoutes.js');
-const addingRoutes = require('./routes/addingRoutes.js');
-const fetchingRoute = require('./routes/fetchingRoute.js');
-const authRoute = require('./routes/authRoutes.js');
+import messageRoutes from './routes/messageRoutes.js';
+import addingRoutes from './routes/addingRoutes.js';
+import fetchingRoute from './routes/fetchingRoute.js';
+import authRoute from './routes/authRoutes.js';
 
 app.use('/api/message/',messageRoutes);
 app.use('/api/add/',addingRoutes);

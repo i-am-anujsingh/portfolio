@@ -1,6 +1,6 @@
-const express = require("express");
-const multer = require("multer");
-const path = require("path");
+import express from "express";
+import multer from "multer";
+import path from "path";
 
 // 🔹 Storage configuration
 const storage = multer.diskStorage({
@@ -32,4 +32,4 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-module.exports = upload;
+export default upload;

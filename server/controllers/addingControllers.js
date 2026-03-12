@@ -1,21 +1,25 @@
-const Skills = require('../models/skillModel.js');
-const Achievements = require('../models/achievementModel.js');
-const Projects = require('../models/projectModel.js');
+import connectDB from '../database/ConnectDatabes.js';
+const mydb = connectDB();
 
 const addSkills = async (req,res)=>{
+  const Skills = mydb.collection("skills");
   
   const {skillData,skill} = req.body;
+
   try {
-    const newSkill = new Skills({
+    const newSkill = {
       area: skillData.area,
       skills: skill,
       detail: skillData.detail,
-    })
-    await newSkill.save();
+    }
+
+    await Skills.insertOne(newSkill);
+
     return res.status(201).json({
       message:'Skill Added Successfully!',
       success:true,
     })
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({
@@ -26,7 +30,10 @@ const addSkills = async (req,res)=>{
 }
 
 const addAchievements = async (req,res)=>{
+  const Achievements = mydb.collection("achivements");
+
   const {title, detail} = req.body;
+
   if (!req.file) {
     return res.status(400).json({
       message: "No file uploaded",
@@ -34,13 +41,13 @@ const addAchievements = async (req,res)=>{
     });
   }
   try {
-    const newAchievement = new Achievements({
+    const newAchievement = {
       title : title,
       detail: detail,
       path: 'server/'+req.file.path
-    })
+    }
     
-    await newAchievement.save();
+    await Achievements.insertOne(newAchievement);
     
     res.status(201).json({
       message:'File uploaded successfully!',
@@ -56,15 +63,19 @@ const addAchievements = async (req,res)=>{
 }
 
 const addProjects = async (req,res)=>{
+  const Projects = mydb.collection("projects");
+
   const {title, role, technology, detail, repo, weblink} = req.body;
+  
   if (!req.file) {
     return res.status(400).json({
       message: "No file uploaded",
       success:false,
     });
   }
+  
   try {
-    const newProject = new Projects({
+    const newProject = {
       title : title,
       role: role,
       technology: technology,
@@ -72,9 +83,9 @@ const addProjects = async (req,res)=>{
       path: 'server/'+req.file.path,
       repo,
       weblink,
-    })
+    }
     
-    await newProject.save();
+    await Projects.insertOne(newProject);
     
     res.status(201).json({
       message:'File uploaded successfully!',
@@ -88,5 +99,5 @@ const addProjects = async (req,res)=>{
     })
   }
 }
-
-module.exports = {addSkills,addAchievements,addProjects};
+  
+export { addSkills, addAchievements, addProjects };

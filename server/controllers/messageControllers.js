@@ -1,16 +1,19 @@
-const Messages = require('../models/messageModel.js');
+import connectDB from '../database/ConnectDatabes.js';
+const mydb = connectDB();
 
-const saveMessage = async (req,res) =>{
+export const saveMessage = async (req,res) =>{
+  const Messages = mydb.collection("messages");
   const {name, email, subject, message} = req.body;
+  
   try {
-    const newMessage = new Messages({
+    const newMessage = {
       name: name,
       email: email,
       subject: subject,
       message: message,
-    })
+    }
     
-    await newMessage.save();
+    await Messages.insertOne(newMessage);
     
     res.status(201).json({
       message:'Message has been send successfully!',
@@ -26,7 +29,8 @@ const saveMessage = async (req,res) =>{
   }
 }
 
-const sendMsgs = async (req,res)=>{
+export const sendMsgs = async (req,res)=>{
+  const Messages = mydb.collection("messages");
   try {
     const messages = await Messages.find();
     res.status(200).json({
@@ -43,10 +47,11 @@ const sendMsgs = async (req,res)=>{
   }
 }
 
-const deleteMsg = async(req,res)=>{
+export const deleteMsg = async(req,res)=>{
+  const Messages = mydb.collection("messages");
   const {id} = req.params;
   try {
-    const deleted = await Messages.findByIdAndDelete(id);
+    const deleted = await Messages.deleteOne({_id:id});
     res.status(200).json({
       message:'Deleted successfully!',
       success:true,
@@ -55,6 +60,3 @@ const deleteMsg = async(req,res)=>{
     console.error(error);
   }
 }
-
-
-module.exports = {saveMessage,sendMsgs,deleteMsg};
