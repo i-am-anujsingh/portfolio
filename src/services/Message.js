@@ -1,6 +1,7 @@
-const API_BASE = import.meta.env.BACKEND_API;
+const API_BASE = import.meta.env.VITE_BACKEND_API;
 
 export const sendMessage = async (data) => {
+  // alert(API_BASE)
   try {
     const res = await fetch(`${API_BASE}/api/message/save`, {
       method: "POST",

@@ -1,5 +1,4 @@
-const API_BASE = 
-import.meta.env.BACKEND_API;
+const API_BASE = import.meta.env.VITE_BACKEND_API;
 
 export const fetchProjects = async () => {
   try {
@@ -16,8 +15,7 @@ export const fetchProjects = async () => {
 export const fetchAchievements = async () => {
   try {
     const res = await fetch(`${API_BASE}/api/fetch/achievements`);
-    
-    const result = await res.json();
+    const result =  await res.json(); // Parse response to read
     return result;
 
   } catch (error) {

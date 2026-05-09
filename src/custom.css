@@ -58,6 +58,7 @@ body{
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  transition: all 0.3s;
 }
 
 #hero a{
@@ -108,7 +109,7 @@ nav a, nav button{
   object-fit: contain;
 }
 
-.navigation-bar a:hover, #hero a:hover {
+.navigation-bar a:hover, #hero a:hover, .navigation-bar button:hover, .project-card a:hover {
   border: 2px solid #fff;
   background: linear-gradient(50deg, #00f5a0, #00d9f5);
   color: #000011;
@@ -146,7 +147,6 @@ nav a, nav button{
   color: white;
   transition: all 0.3s ease-in-out;
   height: auto;
-  overflow: auto;
 }
 
 .skill:hover , .achievement-card:hover, 
@@ -167,30 +167,14 @@ nav a, nav button{
 }
 
 /* ========== Achievements ========== */
-@media (min-width: 786px) {
-  .achievement-container {
-    display: flex;
-    gap: 4rem;
-    height: auto;
-    padding: 2rem;
-  }
-  
-  .achievement-card{
-    width: 30rem;
-    height: 30rem;
-    overflow-y: auto;
-    object-fit: contain;
-  }
-  
-}
-
 .achievement-card, .project-card {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   padding: 1rem;
   text-align: center;
-  height: 100%;
+  height: auto;
+  width: 100%;
   margin-top: 3rem;
 }
 
@@ -202,9 +186,39 @@ nav a, nav button{
   object-fit: fill;
 }
 
+
 .achievement-card p, .project-card p{
   font-size: 0.9rem;
   text-align: justify;
+}
+
+
+@media (min-width: 786px) {
+  .achievement-container, .project-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    height: auto;
+    padding: 2rem;
+  }
+  
+  .achievement-card{
+    width: 30%;
+    height: auto;
+    overflow-y: auto;
+    object-fit: contain;
+  }
+
+ .project-card {
+    height: 56rem;
+    width: 50%;
+  }
+
+ .project-card img {
+    height: 30rem;
+    width: 100%;
+  }
+  
 }
 
 /* ========== Contact Us ========== */

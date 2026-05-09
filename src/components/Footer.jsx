@@ -34,16 +34,16 @@ const Footer = () => {
   return (
     <footer
     id='contact'
-    className="bg-[#001] text-[#888] border-t-[1px] border-gray-400 h-auto w-full">
-      <div className="my-8">
-        <h2 className='text-center text-4xl font-extrabold'>Contact Us</h2>
+    className="bg-[#001] text-[#888] border-t border-gray-400 h-auto w-full">
+      <div className="m-12">
+        <h2 className='text-center text-4xl font-extrabold mt-8'>Contact Us</h2>
         <div className="md:flex m-4 gap-2">
           <div className="message-box">
-            <h3 className="text-2xl text-center">
+            <h3 className="text-2xl text-center my-2">
               Get In Touch
             </h3>
             { res.success || res.success== false?
-            <div className="h-[15rem] w-[100%] md:w-[50%] md:mx-[3rem] left-0 absolute flex justify-center">
+            <div className="h-60 w-full md:w-[50%] md:mx-12 left-0 absolute flex justify-center">
               <div className="h-[60%] w-[80%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-2">
                 <p className={`text-xl text-center ${res.success? 'text-grad' : 'text-red-600'}`}>{res.message}</p>
               </div>

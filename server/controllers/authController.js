@@ -1,5 +1,5 @@
 import connectDB from '../database/ConnectDatabes.js';
-const mydb = connectDB();
+const mydb = await connectDB();
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -11,9 +11,10 @@ const login = async (req, res) => {
   
   try {
     // Find user by username
-    const user = await Users.findOne({ username });
+   const user = await Users.findOne({ username });
+
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email or password',
+      return res.status(401).json({ message: 'Invalid username',
         success:false
       });
     }
@@ -22,7 +23,7 @@ const login = async (req, res) => {
     const isPasswordValid = (password == user.password ? true:false);
     
     if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid username or password',
+      return res.status(401).json({ message: 'Invalid password',
         success:false,
       });
     }

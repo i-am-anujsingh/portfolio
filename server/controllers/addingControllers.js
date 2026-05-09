@@ -1,5 +1,5 @@
 import connectDB from '../database/ConnectDatabes.js';
-const mydb = connectDB();
+const mydb = await connectDB();
 
 const addSkills = async (req,res)=>{
   const Skills = mydb.collection("skills");

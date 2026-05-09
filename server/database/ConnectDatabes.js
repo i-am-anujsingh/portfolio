@@ -1,17 +1,32 @@
-import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
+
 dotenv.config();
 
+const client = new MongoClient(process.env.MONGODB_URI);
+
+let db;
+
 export default async function connectDB() {
-    const client = new MongoClient(process.env.MONGODB_URI);
-    try {
-        const DB = client.db(process.env.DATABASE);
-        if (DB) {
-            return DB;
-        } else {
-            console.error('Failed to connect to MongoDB');
-        }
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-    }
+
+  try {
+
+    // Reuse existing connection
+    if (db) return db;
+
+    // Connect to MongoDB
+    await client.connect();
+
+    console.log("✅ MongoDB Connected");
+
+    db = client.db(process.env.DATABASE);
+
+    return db;
+
+  } catch (error) {
+
+    console.error("❌ MongoDB Connection Error:", error);
+
+    process.exit(1);
+  }
 }

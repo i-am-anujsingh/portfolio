@@ -36,9 +36,6 @@ const Addskills = () => {
     } catch (error) {
       console.error(error);
     }
-    finally{
-      setRes(null)
-    }
   }
   
   return (
@@ -61,7 +58,7 @@ const Addskills = () => {
         }, 3000);
       }}
       id='new-skill-form'
-      className="w-[90%] mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
+      className="w-full mx-auto my-6 p-4 border border-[#ccc] rounded text-center">
       
         <input
         disabled={res.success || res.success==false}
@@ -127,7 +124,6 @@ const Addachievements=()=>{
     }finally{
       setFileData({});
       setFile(null);
-      setRes(null)
     }
   };
   
@@ -151,7 +147,7 @@ const Addachievements=()=>{
         e.target.reset()
       }}
       id='new-skill-form'
-      className="w-[90%] mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
+      className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
       
         <input
         disabled={res.success || res.success==false}
@@ -217,7 +213,6 @@ const Addprojects=()=>{
     }finally{
       setFileData({});
       setFile(null);
-      setRes(null)
     }
   };
   
@@ -239,7 +234,7 @@ const Addprojects=()=>{
         handleProjectAdd(fileData,file);
       }}
       id='new-skill-form'
-      className="w-[90%] mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
+      className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
         <input 
         name="title"
         placeholder='Title'
@@ -332,37 +327,31 @@ const AllMessages=()=>{
       </div>
       {toggleMsg?
       <div className="absolute w-full h-[100vh] bg-transparent-blur left-0 top-0 flex justify-center items-center">
-        <div className="border-[1px] border-white bg-transparent-blur h-auto w-[80%]">
-          <div className="w-full py-2 px-4 my-2 text-white text-end text-xl">
+        <div className="border-[1px] border-white bg-transparent-blur h-auto w-[80%] p-[10px]">
+          <div className="w-full p-8 m-2 text-white text-end">
             <button
             onClick={(e)=>{
               e.preventDefault();
               setToggleMsg(false);
             }}>X</button>
           </div>
-          <div className="text-white h-auto m-4 text-justify">
+          <div className="text-white h-auto m-4 text-center">
             {msg.message}
           </div>
-          <div className="py-2 flex justify-around">
+          <div className="p-4  m-4 flex justify-around">
             <button 
-            className="bg-red-500 text-white py-1 px-2 rounded-xl border-[1px] border-white"
+            className="bg-red-600 text-white p-4 rounded border border-white"
             onClick={(e)=>{
-              
               e.preventDefault();
-              
-              const a = prompt("Do you wanna delete this message? (type 'y' for yes)");
-              
-              if(a=='y'){
+              const a = confirm("Do you wanna delete this message?");
+              if(a){
                 deleteMsg(msg._id);
-                setTimeout(()=>{
-                  window.location.reload();
-                }, 500);
+                setTimeout(()=>{ window.location.reload(); }, 500);
               }
-              
             }}
             >Delete</button>
             <a
-            className="bg-blue-500 text-white py-1 px-2 rounded-xl border-[1px] border-white"
+            className="bg-blue-700 text-white p-4 rounded border border-white"
             href={`mailto:${msg.message}?subject=Reply To ${msg.subject}&to=${msg.email}`}>Mail</a>
           </div>
         </div>

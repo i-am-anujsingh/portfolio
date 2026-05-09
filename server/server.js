@@ -5,14 +5,14 @@ dotenv.config();
 
 const app = express();
 
-const PORT =  process.env.PORT ||  3000;
+const PORT =   3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json({ limits: { fileSize: 15 * 1024 * 1024 } }));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World!!')
 })
 
 //IMPORTING API ROUTES 
