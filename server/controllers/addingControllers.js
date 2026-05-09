@@ -44,7 +44,7 @@ const addAchievements = async (req,res)=>{
     const newAchievement = {
       title : title,
       detail: detail,
-      path: 'server/'+req.file.path
+      path: req.file.path
     }
     
     await Achievements.insertOne(newAchievement);
@@ -80,7 +80,7 @@ const addProjects = async (req,res)=>{
       role: role,
       technology: technology,
       detail: detail,
-      path: 'server/'+req.file.path,
+      path: req.file.path,
       repo,
       weblink,
     }
