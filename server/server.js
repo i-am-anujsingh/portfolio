@@ -10,6 +10,10 @@ const PORT =   3000;
 // Middleware
 app.use(cors());
 app.use(express.json({ limits: { fileSize: 15 * 1024 * 1024 } }));
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
 
 app.get('/', (req, res) => {
   res.send('Hello World!!')
