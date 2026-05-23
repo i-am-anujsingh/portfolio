@@ -58,7 +58,7 @@ body{
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.6s;
 }
 
 #hero a{
@@ -109,7 +109,7 @@ nav a, nav button{
   object-fit: contain;
 }
 
-.navigation-bar a:hover, #hero a:hover, .navigation-bar button:hover, .project-card a:hover {
+.navigation-bar a:hover, #hero a:hover, .navigation-bar button:hover, .project-card a:hover{
   border: 2px solid #fff;
   background: linear-gradient(50deg, #00f5a0, #00d9f5);
   color: #000011;
@@ -190,35 +190,7 @@ nav a, nav button{
 .achievement-card p, .project-card p{
   font-size: 0.9rem;
   text-align: justify;
-}
-
-
-@media (min-width: 786px) {
-  .achievement-container, .project-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 4rem;
-    height: auto;
-    padding: 2rem;
-  }
-  
-  .achievement-card{
-    width: 30%;
-    height: auto;
-    overflow-y: auto;
-    object-fit: contain;
-  }
-
- .project-card {
-    height: 56rem;
-    width: 50%;
-  }
-
- .project-card img {
-    height: 30rem;
-    width: 100%;
-  }
-  
+  margin-top: 1rem;
 }
 
 /* ========== Contact Us ========== */
@@ -262,9 +234,25 @@ nav a, nav button{
 }
 
 #social-media-links{
-  margin: 2rem 0;
+  margin: 2rem 0rem;
+  padding: 10px;
+  width: 100%;
 }
 
+#social-media-links a{
+  height: 25%;
+  margin: auto;
+  padding: auto;
+  letter-spacing: 2px;
+  transition: all 0.9s;
+}
+
+#social-media-links a:hover {
+  transform: scale(1.1) translateX(10px);
+    background: linear-gradient(50deg, #00f5a0, #00d9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* ========== CUSTOM ANIMATIONS ========== */
 
@@ -308,3 +296,43 @@ nav a, nav button{
   border-radius: 20px;
 }
 
+
+
+@media (min-width: 786px) {
+  .achievement-container, .project-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    height: auto;
+    padding: 2rem;
+  }
+  
+  .achievement-card{
+    width: 30%;
+    height: auto;
+    overflow-y: auto;
+    object-fit: contain;
+  }
+
+ .project-card {
+    height: 56rem;
+    width: 50%;
+  }
+
+ .project-card img {
+    height: auto;
+    margin: 1.4rem 0;
+    width: 100%;
+  }
+
+  #social-media-links{
+    width: 25%;
+  }
+  #social-media-links a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+  }
+  
+}

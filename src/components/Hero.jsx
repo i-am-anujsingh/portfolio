@@ -44,7 +44,10 @@ const Hero = () => {
       <h2>About Me</h2>
       <p
       className='text-white'
-      >Aspiring Web Developer with hands-on experience in projects. Skilled in building scalable  and interactive web apps. Passionate about clean code, UI/UX, and continuous learning. Eager to contribute to impactful projects and grow in tech.
+      >Aspiring Full-Stack Web Developer with hands-on experience in designing and building scalable, interactive web applications. 
+Proficient in the MERN stack (MongoDB, Express.js, React, Node.js), with a strong focus on delivering clean, maintainable code 
+and intuitive user experiences. Passionate about UI/UX design, modern development practices, and continuous learning. Eager to 
+contribute to impactful projects, collaborate with dynamic teams, and grow as a versatile developer in the tech industry.
       </p>
     </section>
   </>

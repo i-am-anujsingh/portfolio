@@ -1,4 +1,4 @@
-import connectDB from '../database/ConnectDatabes.js';
+import connectDB from '../config/ConnectDatabes.js';
 const mydb = await connectDB();
 
 const addSkills = async (req,res)=>{
@@ -30,21 +30,18 @@ const addSkills = async (req,res)=>{
 }
 
 const addAchievements = async (req,res)=>{
-  const Achievements = mydb.collection("achivements");
+  const Achievements = mydb.collection("achievements");
 
-  const {title, detail} = req.body;
+  const {title, detail, src} = req.body;
 
-  if (!req.file) {
-    return res.status(400).json({
-      message: "No file uploaded",
-      success:false,
-    });
-  }
   try {
+
+    const imageUrl = `https://lh3.googleusercontent.com/d/${src}`;
+
     const newAchievement = {
       title : title,
       detail: detail,
-      path: req.file.path
+      path: imageUrl
     }
     
     await Achievements.insertOne(newAchievement);
@@ -65,22 +62,18 @@ const addAchievements = async (req,res)=>{
 const addProjects = async (req,res)=>{
   const Projects = mydb.collection("projects");
 
-  const {title, role, technology, detail, repo, weblink} = req.body;
-  
-  if (!req.file) {
-    return res.status(400).json({
-      message: "No file uploaded",
-      success:false,
-    });
-  }
+  const {title, role, technology, detail, repo, weblink, src} = req.body;
   
   try {
+
+    const imageUrl = `https://lh3.googleusercontent.com/d/${src}`;
+
     const newProject = {
       title : title,
       role: role,
       technology: technology,
       detail: detail,
-      path: req.file.path,
+      path: imageUrl,
       repo,
       weblink,
     }

@@ -1,4 +1,4 @@
-import connectDB from '../database/ConnectDatabes.js';
+import connectDB from '../config/ConnectDatabes.js';
 import dotenv from 'dotenv';
 
 dotenv.config();

@@ -101,7 +101,6 @@ const Addskills = () => {
 };
 
 const Addachievements=()=>{
-  const [file, setFile]=useState(null);
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
@@ -115,15 +114,14 @@ const Addachievements=()=>{
     }))
   };
   
-  const handleAchievementAdd= async (fD,f)=>{
+  const handleAchievementAdd = async (fD)=>{
     try{
-      const response = await AddingAchievements({fD,f});
+      const response = await AddingAchievements(fD);
       setRes(response)
     }catch (e) {
       setRes(e)
     }finally{
       setFileData({});
-      setFile(null);
     }
   };
   
@@ -140,7 +138,7 @@ const Addachievements=()=>{
       <form 
       onSubmit={(e)=>{
         e.preventDefault();
-        handleAchievementAdd(fileData, file)
+        handleAchievementAdd(fileData)
         setTimeout(()=>{
                 setRes({});
         }, 3000);
@@ -171,10 +169,11 @@ const Addachievements=()=>{
         <input
         className='text-white'
         name="src"
-        type='file'
-        onChange={(e)=>{
-          setFile(e.target.files[0]);
-        }}
+        placeholder='Source URL ID from Google Drive'
+        type='text'
+        disabled={res.success || res.success==false}
+        onChange={handleFileData}
+        value={fileData.src}
         />
         
         <div className="">
@@ -189,8 +188,6 @@ const Addachievements=()=>{
 }
 
 const Addprojects=()=>{
-  
-  const [file, setFile]=useState(null);
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
@@ -204,15 +201,14 @@ const Addprojects=()=>{
     }))
   };
   
-  const handleProjectAdd= async (fD,f)=>{
+  const handleProjectAdd= async (fD)=>{
     try{
-      const response = await AddingProjects({fD,f});
+      const response = await AddingProjects(fD);
       setRes(response)
     }catch (e) {
       setRes(e)
     }finally{
       setFileData({});
-      setFile(null);
     }
   };
   
@@ -231,7 +227,7 @@ const Addprojects=()=>{
       <form 
       onSubmit={(e)=>{
         e.preventDefault();
-        handleProjectAdd(fileData,file);
+        handleProjectAdd(fileData);
       }}
       id='new-skill-form'
       className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
@@ -258,10 +254,9 @@ const Addprojects=()=>{
         <input
         className='text-white'
         name="src"
-        type='file'
-        onChange={(e)=>{
-          setFile(e.target.files[0]);
-        }}
+        placeholder='Source URL ID from Google Drive'
+        type='text'
+        onChange={handleFileData}
         />
         <div className="">
           <button 

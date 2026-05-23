@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import connectDB from "../database/ConnectDatabes.js";
+import connectDB from "../config/ConnectDatabes.js";
 
 const mydb = await connectDB();
 

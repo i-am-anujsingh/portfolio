@@ -35,9 +35,9 @@ const Footer = () => {
     <footer
     id='contact'
     className="bg-[#001] text-[#888] border-t border-gray-400 h-auto w-full">
-      <div className="m-12">
-        <h2 className='text-center text-4xl font-extrabold mt-8'>Contact Us</h2>
-        <div className="md:flex m-4 gap-2">
+      <h2 className='text-center text-4xl font-extrabold mt-8'>Contact Us</h2>
+      <div className="m-12 md:flex">
+        <div className="md:flex md:w-full m-4 gap-2">
           <div className="message-box">
             <h3 className="text-2xl text-center my-2">
               Get In Touch
@@ -114,11 +114,11 @@ const Footer = () => {
         </div>
         <div 
         id="social-media-links"
-        className="flex m-4 py-4 justify-around text-3xl">
-            <a href="https://www.instagram.com/i.am.anujsingh/profilecard/?igsh=bGIxNGd4MzhiMHE2"><i className="fa-brands fa-instagram text-grad"></i></a>
-            <a href="https://www.linkedin.com/in/anuj-singh-3b8553322"><i className="fa-brands fa-linkedin text-grad"></i></a>
-            <a href="https://github.com/i-am-anujsingh"><i className="fa-brands fa-github text-grad"></i></a>
-            <a href="https://x.com/i_am__anujsingh?t=D8Vodkr3SYH2YB02WeaXbQ&s=09"><i className="fa-brands fa-x-twitter text-grad"></i></a>
+        className="flex md:block md:w-auto justify-around text-3xl">
+            <a className='block' href="https://www.instagram.com/i.am.anujsingh/profilecard/?igsh=bGIxNGd4MzhiMHE2"><i className="fa-brands fa-instagram text-grad"></i><span className='hidden md:inline'> INSTAGRAM</span></a>
+            <a className='block' href="https://www.linkedin.com/in/anuj-singh-3b8553322"><i className="fa-brands fa-linkedin text-grad"></i><span className='hidden md:inline'> LINKEDIN</span></a>
+            <a className='block' href="https://github.com/i-am-anujsingh"><i className="fa-brands fa-github text-grad"></i><span className='hidden md:inline'> GITHUB</span></a>
+            <a className='block' href="mailto:ianujsingh.1801@gmail.com"><i className="fa-brands fa-at text-grad"></i><span className='hidden md:inline'> EMAIL</span></a>
         </div>
       </div>
     </footer>

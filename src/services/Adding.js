@@ -22,20 +22,15 @@ export const AddingSkills= async (data)=>{
 }
 
 export const AddingAchievements = async (data) => {
-  try {
-    const formData = new FormData();
-    formData.append("title", (data.fD).title);
-    formData.append("detail", (data.fD).detail);
-    formData.append("file", data.f); // 👈 File object
-    
+  try {    
     const res = await fetch(`${API_BASE}/api/add/achievements`, {
       method: "POST",
       headers:{
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: formData, // 👈 IMPORTANT
+      body: JSON.stringify(data),
     });
-
     const result = await res.json();
     return result;
 
@@ -49,22 +44,15 @@ export const AddingAchievements = async (data) => {
 };
 
 export const AddingProjects = async (data) => {
-  try {
-    const formData = new FormData();
-    formData.append("title", (data.fD).title);
-    formData.append("role", (data.fD).role);
-    formData.append("detail", (data.fD).detail);
-    formData.append("technology", (data.fD).technology);
-    formData.append("file", data.f);
-    
+  try {    
     const res = await fetch(`${API_BASE}/api/add/projects`, {
       method: "POST",
       headers:{
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: formData,
+      body: JSON.stringify(data),
     });
-
     const result = await res.json();
     return result;
 

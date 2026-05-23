@@ -1,4 +1,4 @@
-import connectDB from '../database/ConnectDatabes.js';
+import connectDB from '../config/ConnectDatabes.js';
 const mydb = await connectDB();
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';

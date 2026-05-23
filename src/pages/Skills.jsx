@@ -14,6 +14,10 @@ const Symbol =({sym}) =>{
 
 const Skills = () =>{
   const [skills, setSkills]=useState(null);
+
+  const [auth] = useState(() => {
+    return Boolean(localStorage.getItem("token"));
+  });
   
   const handleData=async()=>{
     try {
@@ -43,7 +47,7 @@ const Skills = () =>{
               skill={skill}>
                 {/*<div className="flex justify-center text-5xl">
                   <Symbol sym={index} />
-                </div>*/}
+                  </div>*/}
               </SkillCard>
             ))
             ):<p

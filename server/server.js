@@ -1,23 +1,16 @@
 import express from 'express';
 import path from "path";
-import { fileURLToPath } from "url";
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 const PORT =   3000;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors());
-app.use(express.json({ limits: { fileSize: 15 * 1024 * 1024 } }));
-app.use(
-  "/uploads",
-  express.static(path.join(__dirname, "uploads"))
-);
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!!')
