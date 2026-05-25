@@ -142,11 +142,51 @@ nav a, nav button{
 .skill {
   margin: 1.5rem;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   color: white;
   transition: all 0.3s ease-in-out;
   height: auto;
+}
+
+.skill-list{
+  height: 12rem;
+  width: 100%;
+  margin-top: 1rem; 
+  overflow:auto;
+}
+
+.skill-list::-webkit-scrollbar{
+  width: 5px;
+}
+
+.skill-list::-webkit-scrollbar-track{
+  background: #111827;
+  border-radius: 10px;
+}
+
+.skill-list::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    to bottom,
+    #06b6d4,
+    #8b5cf6
+  );
+
+  border-radius: 10px;
+}
+
+.skill-list::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(50deg, #00f5a0, #00d9f5);
+}
+
+.skill .controls{
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  bottom: 10%;
 }
 
 .skill:hover , .achievement-card:hover, 

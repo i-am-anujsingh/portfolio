@@ -21,10 +21,14 @@ import messageRoutes from './routes/messageRoutes.js';
 import addingRoutes from './routes/addingRoutes.js';
 import fetchingRoute from './routes/fetchingRoute.js';
 import authRoute from './routes/authRoutes.js';
+import deletingRoute from './routes/deletingRoutes.js';
+import updatingRoute from './routes/updatingRoutes.js';
 
 app.use('/api/message/',messageRoutes);
 app.use('/api/add/',addingRoutes);
 app.use('/api/fetch/',fetchingRoute);
 app.use('/api/auth/',authRoute);
+app.use('/api/update/',updatingRoute);
+app.use('/api/delete/',deletingRoute);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

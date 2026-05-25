@@ -1,15 +1,33 @@
 import React,{ useState, useEffect} from 'react';
 import '../custom.css'
 import {AddingSkills, AddingAchievements, AddingProjects} from '../services/Adding'
+import { UpdatingSkills } from '../services/Updating'
 import {fetchMsgs,deleteMsg} from '../services/Message'
 
 const Addskills = () => {
+
+  const skillUpdate = JSON.parse(localStorage.getItem("update"));
+
   const [skillData,setSkillData] = useState({});
   const [skills,setSkills] = useState([]);
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
   });
-  
+  const [update,setUpdate] = useState(false);
+
+  setTimeout(()=>{
+    if(skillUpdate){
+      setSkillData({
+        area: skillUpdate.area,
+        detail: skillUpdate.detail,
+        id: skillUpdate._id,
+      });
+      setSkills(skillUpdate.skills);
+      setUpdate(true);
+      localStorage.removeItem("update");
+    }
+  }, 300);
+
   const handleSkillData=(e)=>{
     const {name, value} = e.target;
     setSkillData((prev)=>({
@@ -26,15 +44,18 @@ const Addskills = () => {
   
   const handleSkillSubmit= async (skillData,skill)=>{
     try {
-      const response = await AddingSkills({skillData,skill});
+      const response = update ? await UpdatingSkills({skillData,skill}) : await AddingSkills({skillData,skill});
       setRes(response)
       setSkills(['']);
       setSkillData({
         area:'',
         detail:'',
       })
+      // update && localStorage.removeItem("update");
+      setUpdate(false);
     } catch (error) {
       console.error(error);
+      alert(error.message);
     }
   }
   
@@ -89,10 +110,10 @@ const Addskills = () => {
         placeholder='Detail on the skills'
         />
         
-        <div className="">
+        <div>
           <button 
           className="btn">
-            Add to Skills
+            {update ? 'Update Skills' : 'Add to Skills'}
           </button>
         </div>
       </form>
