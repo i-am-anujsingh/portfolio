@@ -1,4 +1,5 @@
 const API_BASE = import.meta.env.VITE_BACKEND_API;
+
 export const UpdatingSkills = async (data)=>{
   try {
     const res = await fetch(`${API_BASE}/api/update/skills`,{
@@ -12,7 +13,43 @@ export const UpdatingSkills = async (data)=>{
     const text = await res.json();
     return text;
   } catch (error) {
-    console.error('Error deleting skill:', error);
+    console.error('Error updating skill:', error);
+    throw error;
+  }
+};
+
+export const UpdatingProjects = async (data)=>{
+  try {
+    const res = await fetch(`${API_BASE}/api/update/projects`,{
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 
+      },
+      body: JSON.stringify(data),
+    });
+    const text = await res.json();
+    return text;
+  } catch (error) {
+    console.error('Error updating project:', error);
+    throw error;
+  }
+};
+
+export const UpdatingAchievements = async (data)=>{
+  try {
+    const res = await fetch(`${API_BASE}/api/update/achievements`,{
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 
+      },
+      body: JSON.stringify(data),
+    });
+    const text = await res.json();
+    return text;
+  } catch (error) {
+    console.error('Error updating achievement:', error);
     throw error;
   }
 };

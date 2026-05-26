@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../custom.css';
+import { ControlBtns } from '../controls/ControlBtns';
+import { DeletingAchievements} from "../../services/Deleting"
 
 
 const AchievementCard = ({children, achieve}) => {
@@ -9,6 +11,8 @@ const AchievementCard = ({children, achieve}) => {
       {children}
       <p className='text-sm text-gray-300'
       >{achieve.detail}</p>
+      {/* Control Buttons for Achievements */}
+      <ControlBtns place="md:bottom-[-1%]" id={achieve._id} type={"achievement"} obj={achieve} fn={DeletingAchievements}/>
     </div>
   );
 };

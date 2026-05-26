@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../custom.css';
+import { ControlBtns } from '../controls/ControlBtns';
+import { DeletingProjects } from '../../services/Deleting';
 
 
 const ProjectCard = ({children, project}) => {
@@ -14,6 +16,8 @@ const ProjectCard = ({children, project}) => {
         <a className='md:text-2xl' href={project.repo} target='_blank'>View on GitHub</a>
         <a className='md:text-2xl' href={project.weblink} target='_blank'>Live Demo</a>
       </div>
+      {/* Control Buttons for Projects */}
+      <ControlBtns place="md:bottom-[-5%] bottom-[-20%]" id={project._id} type={"project"} obj={project} fn={DeletingProjects}/>
     </div>
   );
 };

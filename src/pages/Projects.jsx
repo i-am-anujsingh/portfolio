@@ -27,18 +27,18 @@ const Projects = () => {
     <section id="projects">
       <div className="my-16">
         <h2>Projects</h2>
-      {data.length?
-      <div className="project-container my-8">
-        {
-          data.map((proj, index) =>(
-            <ProjectCard project={proj}>
-              <img className="projimage" src={`${proj.path}`}
-              alt={proj.title}/>
-            </ProjectCard>
-          ))
+        {data.length?
+        <div className="project-container my-8">
+          {
+            data.map((proj, index) =>(
+              <ProjectCard project={proj}>
+                <img className="projimage" src={`${proj.src}`}
+                alt={proj.title}/>
+              </ProjectCard>
+            ))
+          }
+        </div>:<p className='text-center'>Please Wait...</p>
         }
-      </div>:<p className='text-center'>Please Wait...</p>
-      }
       </div>
     </section>
   );

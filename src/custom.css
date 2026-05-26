@@ -179,14 +179,26 @@ nav a, nav button{
   background: linear-gradient(50deg, #00f5a0, #00d9f5);
 }
 
-.skill .controls{
+.controls{
   display: flex;
   height: auto;
   width: 100%;
   justify-content: center;
   gap: 10px;
   position: relative;
-  bottom: 10%;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.controls button{
+  opacity: 0.7;
+}
+
+.controls button:hover{
+  border: 1.5px solid black;
+  opacity: 1;
+  color: #000011;
+  box-shadow:  0px 0px 5px 3px rgb(254, 254, 254);
 }
 
 .skill:hover , .achievement-card:hover, 
@@ -342,9 +354,10 @@ nav a, nav button{
   .achievement-container, .project-container {
     display: flex;
     justify-content: space-around;
-    gap: 4rem;
+    gap: 2rem;
     height: auto;
     padding: 2rem;
+    flex-wrap: wrap;
   }
   
   .achievement-card{
@@ -356,7 +369,7 @@ nav a, nav button{
 
  .project-card {
     height: 56rem;
-    width: 50%;
+    width: calc(32% - 14px);
   }
 
  .project-card img {

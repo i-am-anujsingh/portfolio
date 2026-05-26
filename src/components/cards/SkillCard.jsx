@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../../custom.css'
 import {DeletingSkills} from '../../services/Deleting';
 import { useNavigate} from "react-router-dom";
+import { ControlBtns } from '../controls/ControlBtns';
 
 const SkillCard = ({children, skill}) => {
   const [showSkill, setShowSkill]=useState(true);
@@ -36,29 +37,10 @@ const SkillCard = ({children, skill}) => {
           }
       </button>
       {/* {children} */}
-      { admin &&
-        <div className='controls w-auto h-full m-0 p-0'>
-          <button
-          onClick={
-            (e)=>{
-              e.preventDefault();
-              localStorage.setItem("update",JSON.stringify(skill));
-              navigate("/iadmin/adminpanel/#addskill");
-            }
-          }
-          className='w-full h-full m-0 p-0 bg-blue-500 rounded-lg'
-          >update</button>
-          <button
-          onClick={
-            async(e)=>{
-              e.preventDefault();
-              confirm('Are you sure you want to delete this skill?') && await DeletingSkills(skill._id);
-            }
-          }
-          className='w-full h-full m-0 p-0 bg-red-500 rounded-lg'
-          >delete</button>
-        </div>
-      }
+
+      {/* Control Buttons for Skills */}
+      <ControlBtns place="bottom-[5%]" id={skill._id} type={"skill"} obj={skill} fn={DeletingSkills}/>
+
     </div>
   );
 };

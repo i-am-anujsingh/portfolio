@@ -1,12 +1,12 @@
 import React,{ useState, useEffect} from 'react';
 import '../custom.css'
 import {AddingSkills, AddingAchievements, AddingProjects} from '../services/Adding'
-import { UpdatingSkills } from '../services/Updating'
+import { UpdatingSkills, UpdatingProjects, UpdatingAchievements } from '../services/Updating'
 import {fetchMsgs,deleteMsg} from '../services/Message'
 
 const Addskills = () => {
 
-  const skillUpdate = JSON.parse(localStorage.getItem("update"));
+  const skillUpdate = JSON.parse(localStorage.getItem("skillUpdate"));
 
   const [skillData,setSkillData] = useState({});
   const [skills,setSkills] = useState([]);
@@ -24,7 +24,7 @@ const Addskills = () => {
       });
       setSkills(skillUpdate.skills);
       setUpdate(true);
-      localStorage.removeItem("update");
+      localStorage.removeItem("skillUpdate");
     }
   }, 300);
 
@@ -122,10 +122,28 @@ const Addskills = () => {
 };
 
 const Addachievements=()=>{
+
+  const achievementUpdate = JSON.parse(localStorage.getItem("achievementUpdate"));
+
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
   });
+
+  const [update,setUpdate] = useState(false);
+
+    setTimeout(()=>{
+    if(achievementUpdate){
+      setFileData({
+        title: achievementUpdate.title,
+        detail: achievementUpdate.detail,
+        id: achievementUpdate._id,
+        src: achievementUpdate.src,
+      });
+      setUpdate(true);
+      localStorage.removeItem("achievementUpdate");
+    }
+  }, 300);
   
   const handleFileData=(e)=>{
     const {name, value} = e.target;
@@ -137,7 +155,7 @@ const Addachievements=()=>{
   
   const handleAchievementAdd = async (fD)=>{
     try{
-      const response = await AddingAchievements(fD);
+      const response = update? await UpdatingAchievements(fD) : await AddingAchievements(fD);
       setRes(response)
     }catch (e) {
       setRes(e)
@@ -200,7 +218,7 @@ const Addachievements=()=>{
         <div className="">
           <button 
           className="btn">
-            Add to Achievements
+            {update ? 'Update Achievement' : 'Add to Achievements'}
           </button>
         </div>
       </form>
@@ -209,10 +227,32 @@ const Addachievements=()=>{
 }
 
 const Addprojects=()=>{
+
+  const projectUpdate = JSON.parse(localStorage.getItem("projectUpdate"));
+  
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
   });
+
+  const [update,setUpdate] = useState(false);
+
+  setTimeout(()=>{
+    if(projectUpdate){
+      setFileData({
+        title: projectUpdate.title,
+        detail: projectUpdate.detail,
+        id: projectUpdate._id,
+        role: projectUpdate.role,
+        technology: projectUpdate.technology,
+        src: projectUpdate.src,
+        repo: projectUpdate.repo,
+        weblink: projectUpdate.weblink,
+      });
+      setUpdate(true);
+      localStorage.removeItem("projectUpdate");
+    }
+  }, 300);
   
   const handleFileData=(e)=>{
     const {name, value} = e.target;
@@ -224,7 +264,7 @@ const Addprojects=()=>{
   
   const handleProjectAdd= async (fD)=>{
     try{
-      const response = await AddingProjects(fD);
+      const response = update? await UpdatingProjects(fD) : await AddingProjects(fD);
       setRes(response)
     }catch (e) {
       setRes(e)
@@ -256,33 +296,65 @@ const Addprojects=()=>{
         name="title"
         placeholder='Title'
         onChange={handleFileData}
+        value={fileData.title}
+        required
         />
+
         <input 
         name="role"
         placeholder='Role in the Project'
         onChange={handleFileData}
+        value={fileData.role}
+        required
         />
+
         <input 
         name="technology"
         placeholder='Technology Used'
         onChange={handleFileData}
+        value={fileData.technology}
+        required
         />
+
         <textarea
         name="detail"
         placeholder='Detail on the Project'
         onChange={handleFileData}
+        value={fileData.detail}
+        required
         />
+
         <input
         className='text-white'
         name="src"
         placeholder='Source URL ID from Google Drive'
         type='text'
         onChange={handleFileData}
+        value={fileData.src}
         />
+
+        <input
+        className='text-white'
+        name="repo"
+        placeholder='GitHub Repo Link'
+        type='text'
+        onChange={handleFileData}
+        value={fileData.repo}
+        />
+
+        <input
+        className='text-white'
+        name="weblink"
+        placeholder='Live Weblink'
+        type='text'
+        onChange={handleFileData}
+        value={fileData.weblink}
+        />
+
         <div className="">
           <button 
           className="btn">
-            Add to Projects
+            {update? "Update Project" : "Add to Projects"}
           </button>
         </div>
       </form>

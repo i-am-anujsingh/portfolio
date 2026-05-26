@@ -32,7 +32,7 @@ const Achievements = () => {
         {
           data.map((achieve, index) =>(
             <AchievementCard achieve={achieve}>
-              <img className="projimage" src={`${achieve.path}`}
+              <img className="projimage" src={`${achieve.src}`}
               alt={achieve.title}/>
             </AchievementCard>
           ))

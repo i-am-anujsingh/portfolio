@@ -7,8 +7,6 @@ const deleteSkills = async (req,res)=>{
   
   const {id} = req.params;
 
-  console.log('inside controller: ',id);
-
   try {
     await Skills.deleteOne({ _id: new ObjectId(id)
  });
@@ -27,4 +25,50 @@ const deleteSkills = async (req,res)=>{
   }
 }
 
-export {deleteSkills};
+const deleteProjects = async (req,res)=>{
+  const Projects = mydb.collection("projects");
+  
+  const {id} = req.params;
+
+  try {
+    await Projects.deleteOne({ _id: new ObjectId(id)
+ });
+
+    return res.status(201).json({
+      message:'Project Deleted Successfully!',
+      success:true,
+    })
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message:'Some Error Occured!',
+      success:false,
+    })
+  }
+}
+
+const deleteAchievements = async (req,res)=>{
+  const Achievements = mydb.collection("achievements");
+  
+  const {id} = req.params;
+
+  try {
+    await Achievements.deleteOne({ _id: new ObjectId(id)
+ });
+
+    return res.status(201).json({
+      message:'Achievement Deleted Successfully!',
+      success:true,
+    })
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message:'Some Error Occured!',
+      success:false,
+    })
+  }
+}
+
+export {deleteSkills, deleteProjects, deleteAchievements};

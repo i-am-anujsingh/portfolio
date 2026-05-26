@@ -1,14 +1,14 @@
 import express from 'express';
 import authMiddleware from '../middleware/authMiddleware.js';
-import { updateSkills } from '../controllers/updatingControllers.js';
+import { updateSkills, updateProjects, updateAchievements } from '../controllers/updatingControllers.js';
 
 
 const router = express.Router();
 
 router.put('/skills',authMiddleware,updateSkills);
 
-// router.post('/achievements', authMiddleware,addAchievements);
+router.put('/achievements', authMiddleware,updateAchievements);
 
-// router.post('/projects',authMiddleware,addProjects);
+router.put('/projects',authMiddleware,updateProjects);
 
 export default router;
