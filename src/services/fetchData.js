@@ -1,8 +1,8 @@
 const API_BASE = import.meta.env.VITE_BACKEND_API;
 
-export const fetchProjects = async () => {
+const fetchItem = async (type) => {
   try {
-    const res = await fetch(`${API_BASE}/api/fetch/projects`);
+    const res = await fetch(`${API_BASE}/api/fetch/${type}`);
     
     const result = await res.json();
     return result;
@@ -12,23 +12,11 @@ export const fetchProjects = async () => {
   }
 };
 
-export const fetchAchievements = async () => {
-  try {
-    const res = await fetch(`${API_BASE}/api/fetch/achievements`);
-    const result =  await res.json(); // Parse response to read
-    return result;
+export const fetchSkills = (data) =>
+  fetchItem("skills", data);
 
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const fetchProjects = (data) =>
+  fetchItem("projects", data);
 
-export const fetchSkills = async ()=>{
-  try {
-    const res = await fetch(`${API_BASE}/api/fetch/skills`);
-    const result = await res.json(); // Parse response to read 
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const fetchAchievements = (data) =>
+  fetchItem("achievements", data);

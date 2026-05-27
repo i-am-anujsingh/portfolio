@@ -23,13 +23,4 @@ export const login = async (userData) => {
     };
   }
 
-}
-
-/* export const logout = async (userData)=>{
-  try {
-    const res = await axios.post(`${API_BASE}/auth/signup`,userData);
-    return res.data;
-  } catch (error) {
-    console.error(error);
-  }
-} */
+};
