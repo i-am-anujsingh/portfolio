@@ -35,7 +35,7 @@ const Footer = () => {
     <footer
     id='contact'
     className="bg-[#001] text-[#888] border-t border-gray-400 h-auto w-full">
-      <h2 className='text-center text-4xl font-extrabold mt-8'>Contact Us</h2>
+      <hr className='w-full h-[1rem]' />
       <div className="m-12 md:flex">
         <div className="md:flex md:w-full m-4 gap-2">
           <div className="message-box">

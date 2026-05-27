@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../custom.css';
 import AchievementCard from '../components/cards/AchievementCard';
 import {fetchAchievements} from '../services/fetchData.js';
+import Loader from '../components/Loader';
 
 const Achievements = () => {
   const [data, setData]=useState([]);
@@ -37,7 +38,7 @@ const Achievements = () => {
             </AchievementCard>
           ))
         }
-      </div>:<p className='text-center'>Please Wait...</p>
+      </div>:<Loader />
       }
       </div>
     </section>

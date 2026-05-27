@@ -3,6 +3,7 @@ import '../custom.css'
 import SkillCard from '../components/cards/SkillCard'
 import { FaCode, FaGlobe, FaDatabase, FaPaintbrush, FaLanguage} from 'react-icons/fa6';
 import {fetchSkills} from '../services/fetchData.js';
+import Loader from '../components/Loader.jsx';
 
 const Symbol =({sym}) =>{
   if(sym===0) return <FaCode/>
@@ -50,9 +51,7 @@ const Skills = () =>{
                   </div>*/}
               </SkillCard>
             ))
-            ):<p
-            className='text-center'
-            >Please Wait...</p>
+            ):<Loader />
           }
         </div>
       </div>

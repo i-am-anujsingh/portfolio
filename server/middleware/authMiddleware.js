@@ -8,7 +8,7 @@ const authMiddleware = (req, res, next) => {
 
   const token = authHeader.split(" ")[1]; // Extract token
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(403).json({ msg: "Invalid token" });
+    if (err) return res.status(403).json({ message: "Invalid token, Please login again!", success: false });
     
     // decoded contains user info from token payload
     req.user = decoded;  

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../custom.css';
 import ProjectCard from '../components/cards/ProjectCard.jsx';
 import {fetchProjects} from '../services/fetchData.js';
+import Loader from '../components/Loader.jsx';
 
 const Projects = () => {
   const [data, setData]=useState([]);
@@ -28,7 +29,7 @@ const Projects = () => {
       <div className="my-16">
         <h2>Projects</h2>
         {data.length?
-        <div className="project-container my-8">
+        <div className="project-container">
           {
             data.map((proj, index) =>(
               <ProjectCard project={proj}>
@@ -37,7 +38,7 @@ const Projects = () => {
               </ProjectCard>
             ))
           }
-        </div>:<p className='text-center'>Please Wait...</p>
+        </div>:<Loader />
         }
       </div>
     </section>

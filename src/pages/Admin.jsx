@@ -51,7 +51,6 @@ const Addskills = () => {
         area:'',
         detail:'',
       })
-      // update && localStorage.removeItem("update");
       setUpdate(false);
     } catch (error) {
       console.error(error);
