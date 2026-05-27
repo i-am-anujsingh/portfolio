@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Custom.css';
+import '../custom.css';
 
 const Loader=()=>{
   return(
