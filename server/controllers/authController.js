@@ -20,8 +20,7 @@ const login = async (req, res) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const isPasswordValid = await bcrypt.compare(hashedPassword, user.password);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
     
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid password',
