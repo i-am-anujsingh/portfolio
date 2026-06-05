@@ -1,6 +1,7 @@
 import connectDB from '../config/ConnectDatabes.js';
 const mydb = await connectDB();
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -19,8 +20,8 @@ const login = async (req, res) => {
       });
     }
 
-    // Compare plain password with hashed one using bcryptjs
-    const isPasswordValid = (password == user.password ? true:false);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const isPasswordValid = await bcrypt.compare(hashedPassword, user.password);
     
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid password',

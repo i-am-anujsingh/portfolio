@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'iadmin/adminpanel',
+        path: "iadmin/*",
         element: <AuthLayer><Admin/></AuthLayer>,
       },
       {

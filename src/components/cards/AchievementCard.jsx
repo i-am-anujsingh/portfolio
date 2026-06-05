@@ -7,7 +7,7 @@ import { DeletingAchievements} from "../../services/Deleting"
 const AchievementCard = ({children, achieve}) => {
   return (
     <div className="achievement-card w-auto border-2 border-gray-800">
-      <h1 className="font-bold text-xl my-2 text-grad">{achieve.title}</h1>
+      <h1 className="font-bold text-xl my-2 text-grad"><i>./ </i>{achieve.title}</h1>
       {children}
       <p className='text-sm text-gray-300'
       >{achieve.detail}</p>

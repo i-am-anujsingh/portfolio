@@ -27,7 +27,7 @@ const Achievements = () => {
   return(
     <section id="achievements">
       <div className="my-16">
-        <h2>Achievements</h2>
+        <h2># Achievements</h2>
       {data.length?
       <div className="achievement-container my-8">
         {

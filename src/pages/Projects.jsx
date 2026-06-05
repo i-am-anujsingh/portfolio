@@ -27,7 +27,7 @@ const Projects = () => {
   return(
     <section id="projects">
       <div className="my-16">
-        <h2>Projects</h2>
+        <h2># Projects</h2>
         {data.length?
         <div className="project-container">
           {

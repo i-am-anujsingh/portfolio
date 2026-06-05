@@ -77,7 +77,7 @@ const Addskills = () => {
                 setRes({});
         }, 3000);
       }}
-      id='new-skill-form'
+      id='admin-form'
       className="w-full mx-auto my-6 p-4 border border-[#ccc] rounded text-center">
       
         <input
@@ -182,7 +182,7 @@ const Addachievements=()=>{
         }, 3000);
         e.target.reset()
       }}
-      id='new-skill-form'
+      id='admin-form'
       className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
       
         <input
@@ -289,7 +289,7 @@ const Addprojects=()=>{
         e.preventDefault();
         handleProjectAdd(fileData);
       }}
-      id='new-skill-form'
+      id='admin-form'
       className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
         <input 
         name="title"
@@ -395,10 +395,11 @@ const AllMessages=()=>{
       <h2 >All mesaages</h2>
       <div className="h-auto">
       { messages.length?
-      <div className="h-[10rem] overflow-auto px-6">
+      <div className="h-[auto] overflow-auto px-6">
         {(messages).map((m, i) =>(
           <button 
-          className="w-full bg-transparent-blur my-2 py-2 text-center border-[1px] border-white"
+          className="w-full bg-transparent-blur text-center border-[1px] border-white"
+          style={{padding: '4px'}, {margin:"10px 0"}}
           onClick={(e)=>{
             e.preventDefault();
             setMsg(m);
@@ -414,20 +415,25 @@ const AllMessages=()=>{
       </div>
       {toggleMsg?
       <div className="absolute w-full h-[100vh] bg-transparent-blur left-0 top-0 flex justify-center items-center">
-        <div className="border-[1px] border-white bg-transparent-blur h-auto w-[80%] p-[10px]">
-          <div className="w-full p-8 m-2 text-white text-end">
+        <div className="border-[1px] border-white bg-transparent-blur h-auto w-[80%]"
+        style={{padding: '1rem'}}
+        >
+          <div className="w-full p-4 m-2 text-white text-end">
             <button
             onClick={(e)=>{
               e.preventDefault();
               setToggleMsg(false);
             }}>X</button>
           </div>
-          <div className="text-white h-auto m-4 text-center">
+          <div className="text-white h-auto text-center"
+          style={{margin: '1rem'}}
+          >
             {msg.message}
           </div>
-          <div className="p-4  m-4 flex justify-around">
+          <div className="p-4 m-2 flex justify-around">
             <button 
-            className="bg-red-600 text-white p-4 rounded border border-white"
+            className="bg-red-600 text-white rounded border border-white"
+            style={{padding: '4px 16px'}}
             onClick={(e)=>{
               e.preventDefault();
               const a = confirm("Do you wanna delete this message?");
@@ -438,7 +444,8 @@ const AllMessages=()=>{
             }}
             >Delete</button>
             <a
-            className="bg-blue-700 text-white p-4 rounded border border-white"
+            className="bg-blue-700 text-white rounded border border-white"
+            style={{padding: '4px 16px'}}
             href={`mailto:${msg.message}?subject=Reply To ${msg.subject}&to=${msg.email}`}>Mail</a>
           </div>
         </div>

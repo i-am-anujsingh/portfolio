@@ -26,6 +26,22 @@
   backdrop-filter: blur(9rem);
 }
 
+.robotic-text {
+  font-family: 'Audiowide', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+#admin-form input,#admin-form textarea{
+  border-radius: 4px;
+  padding: 4px;
+  width: 80%;
+  margin: 1rem 0 1rem 0;
+  color: #ffffff;
+  background-color: #75757581;
+}
+
 .loader-container{
   width: 15%;
   height: 100%;
@@ -87,7 +103,7 @@ body{
   height: auto;
 }
 
-#hero a, .project-card a {
+.project-card a {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   border: 1px solid #ccc;
@@ -100,13 +116,15 @@ body{
   transition: all 0.6s;
 }
 
-#hero a{
-  display: inline-block;
-}
-
 #hero img{
   box-shadow: 0 0 25px 20px rgba(0, 0, 0 , 1);
   margin-top: 3rem;
+}
+
+#about{
+  text-align: justify;
+  padding: 0rem 1rem 2rem 1rem;
+  color: #888;
 }
 
 nav {
@@ -153,10 +171,10 @@ nav a, nav button{
   background: linear-gradient(50deg, #00f5a0, #00d9f5);
   color: #000011;
   box-shadow:  0px 0px 10px rgba(0, 245, 160 , 1);
-  transform: scale(1.09) translateY(7px);
+  transform: scale(1.01) translateY(7px);
 }
 
-#about, #skills,#projects, #achievements, #addskill, #addachievement, #addproject{
+#skills,#projects, #achievements, #addskill, #addachievement, #addproject{
   text-align: justify;
   padding: 2rem 1rem 2rem 1rem;
   background: #000011;
@@ -223,9 +241,9 @@ nav a, nav button{
   width: 100%;
   justify-content: center;
   gap: 10px;
-  position: relative;
   color: #ffffff;
   transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
 }
 
 .controls button{
@@ -233,10 +251,11 @@ nav a, nav button{
 }
 
 .controls button:hover{
-  border: 1.5px solid black;
+  border: 2px solid black;
   opacity: 1;
   color: #000011;
-  box-shadow:  0px 0px 5px 3px rgb(254, 254, 254);
+  font-weight: bold;
+  box-shadow:  0px 0px 5px 2px rgb(254, 254, 254);
 }
 
 .skill:hover , .achievement-card:hover, 
@@ -247,21 +266,13 @@ nav a, nav button{
   
 }
 
-#new-skill-form input,#new-skill-form textarea{
-  border-radius: 4px;
-  color: #000011;
-  padding: 4px;
-  width: 80%;
-  margin: 1rem 0 1rem 0;
-  background-color: white;
-}
-
 /* ========== Achievements ========== */
 .achievement-card, .project-card {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   padding: 1rem;
+  margin-top: 1rem;
   text-align: center;
   height: auto;
   width: 100%;
@@ -301,9 +312,9 @@ nav a, nav button{
   border-radius: 10px;
   padding: 5px;
   height: auto;
-  color: #000011;
   border: none;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #75757581;
 }
 
 .message-btn-box{
@@ -312,14 +323,18 @@ nav a, nav button{
 
 .btn{
   font-size: 16px;
-  padding: 4px;
+  padding: 4px 8%;
   margin: 12px;
   background: linear-gradient(50deg, #00f5a0, #00d9f5);
   box-shadow:  0px 0px 10px rgba(0, 245, 160 , 1);
   border: 2px solid #fff;
   border-radius: 18px;
   color: #000011;
-  width: 80%;
+}
+
+.btn:hover{
+  background: linear-gradient(50deg, #01d5ff, #01d5ff);
+  box-shadow:  0px 0px 15px rgba(0, 245, 160 , 1);
 }
 
 #social-media-links{
@@ -385,9 +400,18 @@ nav a, nav button{
   border-radius: 20px;
 }
 
-
-
 @media (min-width: 786px) {
+
+  .robotic-text{
+    font-size: 0.95rem;
+  }
+
+  #about{
+    font-size: 1.2rem;
+    word-spacing: 1px;
+    letter-spacing: 0.8px;
+  }
+
   .achievement-container, .project-container {
     display: flex;
     justify-content: space-around;

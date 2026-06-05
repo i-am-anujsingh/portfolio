@@ -39,7 +39,7 @@ const Skills = () =>{
   return(
     <section id='skills'>
       <div className="my-6">
-        <h2>Skills</h2>
+        <h2># Skills</h2>
         <div className="skills-container text-center">
           { skills?(
             skills.map((skill, index) => (

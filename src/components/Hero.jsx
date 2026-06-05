@@ -14,7 +14,7 @@ const Hero = () => {
   <>
     <section 
     id="hero"
-    className="h-[100vh] md:h-auto w-[100%] text-white p-[1rem] md:py-[10rem] ">
+    className="md:h-auto w-[100%] text-white p-[1rem] md:py-[10rem] ">
       
       {/*IMAGE DIV*/}
       <div className="h-[40%] w-full flex justify-center items-center my-[4rem]">
@@ -29,19 +29,15 @@ const Hero = () => {
       <div className="w-auto text-center h-full mt-1 md:mt-2 ">
         <div className='py-8 w-auto h-auto intro'>
           <h1
-          className='my-4 font-extrabold text-2xl md:text-4xl '
+          className='my-4 font-extrabold text-2xl md:text-4xl'
           >Welcome to My Portfolio</h1>
           <pre
-          className='mb-12 text-sm md:text-2xl font-mono font-red-200'
+          className='robotic-text text-grad'
           >Developer || Designer || Innovator</pre>
-          <a
-            className='md:text-2xl intro-a'
-            href="#about">About Me</a>
         </div>
       </div>
-    </section>
     <section id="about">
-      <h2>About Me</h2>
+      <h2># About Me</h2>
       <p
       className='text-white'
       >Aspiring Full-Stack Web Developer with hands-on experience in designing and building scalable, interactive web applications. 
@@ -49,6 +45,7 @@ Proficient in the MERN stack (MongoDB, Express.js, React, Node.js), with a stron
 and intuitive user experiences. Passionate about UI/UX design, modern development practices, and continuous learning. Eager to 
 contribute to impactful projects, collaborate with dynamic teams, and grow as a versatile developer in the tech industry.
       </p>
+    </section>
     </section>
   </>
   )
