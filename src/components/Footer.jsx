@@ -121,6 +121,7 @@ const Footer = () => {
             <a className='block' href="mailto:ianujsingh.1801@gmail.com"><i className="fa-brands fa-at text-grad"></i><span className='hidden md:inline'> EMAIL</span></a>
         </div>
       </div>
+      <div className='text-center' style={{padding:"10px 0"}, {fontWeight: "bold"}}>&copy; {new Date().getFullYear()} Anuj Singh – All Rights Reserved.</div>
     </footer>
   );
 };
