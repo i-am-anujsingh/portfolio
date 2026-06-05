@@ -1,15 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import '../custom.css'
-import img0 from '../assets/images/myimg/dp1.jpg'
-import img1 from '../assets/images/myimg/sunset.jpg'
-import img2 from '../assets/images/myimg/statue.jpg'
-import img3 from '../assets/images/myimg/mirror.jpg'
-import img4 from '../assets/images/myimg/suit.jpg'
-import img5 from '../assets/images/myimg/myself3.jpg'
+import img from '../assets/images/my.jpg'
 
 const Hero = () => {
-  let l=[img1,img2,img3,img4,img5,img0];
-  const [img,setImg]=useState(l[l.length-1]);
+
   return (
   <>
     <section 

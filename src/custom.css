@@ -87,7 +87,7 @@ body{
 }
 
 #hero{
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('./assets/background/bg.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('./assets/background/bg2.jpg') center/cover no-repeat;
   padding: 1rem;
 }
 
@@ -117,7 +117,7 @@ body{
 }
 
 #hero img{
-  box-shadow: 0 0 25px 20px rgba(0, 0, 0 , 1);
+  box-shadow: 0 0 30px 15px rgba(0, 0, 0 , 1);
   margin-top: 3rem;
 }
 
