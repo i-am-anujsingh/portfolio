@@ -42,9 +42,9 @@ const Footer = () => {
             <h3 className="text-2xl text-center my-2">
               Get In Touch
             </h3>
-            { res.success || res.success== false?
-            <div className="h-60 w-full md:w-[50%] md:mx-12 left-0 absolute flex justify-center">
-              <div className="h-[60%] w-[80%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-2">
+            { res.success || res.success== false ?
+            <div className="h-60 w-full md:w-[80%] md:mx-12 left-0 absolute flex justify-center items-center">
+              <div className="h-[60%] w-[60%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-4">
                 <p className={`text-xl text-center ${res.success? 'text-grad' : 'text-red-600'}`}>{res.message}</p>
               </div>
             </div> : null

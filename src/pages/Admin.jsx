@@ -7,7 +7,6 @@ import {fetchMsgs,deleteMsg} from '../services/Message'
 const Addskills = () => {
 
   const skillUpdate = JSON.parse(localStorage.getItem("skillUpdate"));
-
   const [skillData,setSkillData] = useState({});
   const [skills,setSkills] = useState([]);
   const [res,setRes] = useState({
@@ -46,15 +45,13 @@ const Addskills = () => {
     try {
       const response = update ? await UpdatingSkills({skillData,skill}) : await AddingSkills({skillData,skill});
       setRes(response)
-      setSkills(['']);
-      setSkillData({
-        area:'',
-        detail:'',
-      })
       setUpdate(false);
     } catch (error) {
       console.error(error);
       alert(error.message);
+    } finally{
+      setSkills([]);
+      setSkillData({});
     }
   }
   
@@ -62,9 +59,9 @@ const Addskills = () => {
     <section
     id='addskill'>
       <h2>Add New Skill </h2>
-      { res.success || res.success== false?
-            <div className="h-[15rem] w-[100%] md:w-[50%] md:mx-[3rem] left-0 absolute flex justify-center">
-              <div className="h-[60%] w-[80%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-2">
+      { res.success || res.success== false ?
+            <div className="h-[15rem] w-[100%] md:w-[100%] md:mx-[3rem] left-0 absolute flex justify-center items-center">
+              <div className="h-[60%] w-[60%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-4">
                 <p className={`text-xl ${res.success? 'text-grad' : 'text-red-600'}`}>{res.message}</p>
               </div>
             </div> : null
@@ -74,7 +71,9 @@ const Addskills = () => {
         e.preventDefault();
         handleSkillSubmit(skillData,skills);
         setTimeout(()=>{
-                setRes({});
+          setRes({});
+          setShowRes(false);
+          window.location.reload();
         }, 3000);
       }}
       id='admin-form'
@@ -123,7 +122,6 @@ const Addskills = () => {
 const Addachievements=()=>{
 
   const achievementUpdate = JSON.parse(localStorage.getItem("achievementUpdate"));
-
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
@@ -166,9 +164,9 @@ const Addachievements=()=>{
   return(
     <section id='addachievement'>
       <h2 >Add New Achievement</h2>
-      { res.success || res.success== false?
-            <div className="h-[15rem] w-[100%] md:w-[50%] md:mx-[3rem] left-0 absolute flex justify-center">
-              <div className="h-[60%] w-[80%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-2">
+      { res.success || res.success == false ?
+            <div className="h-[15rem] w-[100%] md:w-[100%] md:mx-[3rem] left-0 absolute flex justify-center items-center">
+              <div className="h-[60%] w-[60%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-4">
                 <p className={`text-xl ${res.success? 'text-grad' : 'text-red-600'}`}>{res.message}</p>
               </div>
             </div> : null
@@ -178,7 +176,8 @@ const Addachievements=()=>{
         e.preventDefault();
         handleAchievementAdd(fileData)
         setTimeout(()=>{
-                setRes({});
+          setRes({});
+          window.location.reload();
         }, 3000);
         e.target.reset()
       }}
@@ -228,7 +227,6 @@ const Addachievements=()=>{
 const Addprojects=()=>{
 
   const projectUpdate = JSON.parse(localStorage.getItem("projectUpdate"));
-  
   const [fileData, setFileData]=useState({});
   const [res,setRes] = useState({
     message:'Sent Successfully!(test text)'
@@ -277,9 +275,9 @@ const Addprojects=()=>{
     id='addproject'
     >
       <h2 >Add New Project</h2>
-      { res.success || res.success== false?
-        <div className="h-[15rem] w-[100%] md:w-[50%] md:mx-[3rem] left-0 absolute flex justify-center">
-          <div className="h-[60%] w-[80%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-2">
+      { res.success || res.success == false ?
+        <div className="h-[20rem] w-[100%] md:w-[100%] md:mx-[3rem] left-0 absolute flex justify-center items-center">
+          <div className="h-[60%] w-[60%] bg-[#000011ed] m-auto rounded-2xl border-[#ccc] border-[1.5px] flex justify-center items-center p-4">
             <p className={`text-xl ${res.success? 'text-grad' : 'text-red-600'}`}>{res.message}</p>
           </div>
         </div> : null
@@ -288,6 +286,11 @@ const Addprojects=()=>{
       onSubmit={(e)=>{
         e.preventDefault();
         handleProjectAdd(fileData);
+        setTimeout(()=>{
+          setRes({});
+          window.location.reload();
+        }, 3000);
+        e.target.reset()
       }}
       id='admin-form'
       className="w-full mx-auto my-6 p-4 border-[1px] border-[#ccc] rounded text-center">
@@ -425,7 +428,7 @@ const AllMessages=()=>{
               setToggleMsg(false);
             }}>X</button>
           </div>
-          <div className="text-white h-auto text-center"
+          <div className="text-white h-auto text-justify bg-transparent-blur"
           style={{margin: '1rem'}}
           >
             {msg.message}
