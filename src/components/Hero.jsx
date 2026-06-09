@@ -27,17 +27,14 @@ const Hero = () => {
           >Welcome to My Portfolio</h1>
           <pre
           className='robotic-text text-grad'
-          >Developer || Designer || Innovator</pre>
+          >Developer || Explorer || Innovator</pre>
         </div>
       </div>
     <section id="about">
       <h2># About Me</h2>
       <p
       className='text-white'
-      >Aspiring Full-Stack Web Developer with hands-on experience in designing and building scalable, interactive web applications. 
-Proficient in the MERN stack (MongoDB, Express.js, React, Node.js), with a strong focus on delivering clean, maintainable code 
-and intuitive user experiences. Passionate about UI/UX design, modern development practices, and continuous learning. Eager to 
-contribute to impactful projects, collaborate with dynamic teams, and grow as a versatile developer in the tech industry.
+      >Software Developer with hands-on experience building full-stack web applications using the MERN stack and Django. Skilled in backend development, REST API design, database integration, and deployment. Passionate about software engineering, Artificial Intelligence, and building scalable applications that solve real-world problems. Currently pursuing a Bachelor of Computer Applications (BCA) and continuously strengthening expertise in Data Structures & Algorithms, System Design, and AI-powered software development.
       </p>
     </section>
     </section>
