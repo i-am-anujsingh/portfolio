@@ -34,7 +34,7 @@ const Hero = () => {
       <h2># About Me</h2>
       <p
       className='text-white'
-      >Software Developer with hands-on experience building full-stack web applications using the MERN stack and Django. Skilled in backend development, REST API design, database integration, and deployment. Passionate about software engineering, Artificial Intelligence, and building scalable applications that solve real-world problems. Currently pursuing a Bachelor of Computer Applications (BCA) and continuously strengthening expertise in Data Structures & Algorithms, System Design, and AI-powered software development.
+      >Software Developer with hands-on experience building full-stack web applications using the MERN stack. Skilled in backend development, REST API design, database integration, and deployment. Passionate about software engineering, Artificial Intelligence, and building scalable applications that solve real-world problems. Currently pursuing a Bachelor of Computer Applications (BCA) and continuously strengthening expertise in Data Structures & Algorithms, System Design, and AI-powered software development.
       </p>
     </section>
     </section>
